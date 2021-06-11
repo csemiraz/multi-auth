@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('back-end.multi-user.home');
 });
 
 Route::get('/dashboard', function () {
