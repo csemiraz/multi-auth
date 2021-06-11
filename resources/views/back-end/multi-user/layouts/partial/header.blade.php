@@ -229,7 +229,17 @@
                     <li><a href=" "><span><i class="fas fa-cogs"></i></span>  Password Change</a></li>
                     <li>
 
-                        <a href=" "><span><i class="fas fa-unlock-alt"></i></span> Logout</a></li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+        
+                            <a href="#"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                    <span><i class="fas fa-unlock-alt"></i></span>
+                                {{ __('Log Out') }}
+                            </a>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </li>
@@ -238,3 +248,12 @@
             <a class="responsive_menu_toggle" href="#"><i class="fas fa-bars"></i></a></li>
     </ul>
 </header>
+{{-- <form method="POST" action="{{ route('logout') }}">
+    @csrf
+
+    <x-responsive-nav-link :href="route('logout')"
+            onclick="event.preventDefault();
+                        this.closest('form').submit();">
+        {{ __('Log Out') }}
+    </x-responsive-nav-link>
+</form> --}}

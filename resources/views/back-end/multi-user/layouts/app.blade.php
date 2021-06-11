@@ -7,7 +7,7 @@
         <meta name="author" content="">
         <link rel="icon" href="{{ asset('assets/back-end/multi-user/') }}/panel/assets/images/favicon.png" >
         <!--Page title-->
-        <title>Admin easy Learning</title>
+        <title>Multi-Auth</title>
         <!--bootstrap-->
         <link rel="stylesheet" href="{{ asset('assets/back-end/multi-user/') }}/panel/assets/css/bootstrap.min.css">
         <!--font awesome-->
