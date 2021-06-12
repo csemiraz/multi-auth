@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Author\DashboardController;
+use App\Http\Controllers\User\DashboardController as UserDashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::group(['as'=>'author', 'prefix'=>'author', 'namespace'=>'Author', 'middleware'=>['auth', 'author']], function() {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+Route::group(['as'=>'user', 'prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth' ,'user']], function() {
+    Route::get('dashboard', [UserDashboard::class, 'index'])->name('dashboard');
+});
