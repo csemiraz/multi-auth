@@ -49,6 +49,12 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::home());
+        /* if(Auth::check() && Auth::user()->role_id==1) {
+            return redirect()->route('author.dashboard');
+        }
+        else {
+            return redirect()->route('user.dashboard');
+        } */
     }
 }
