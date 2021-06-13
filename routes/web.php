@@ -19,16 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboard', function () {
     return view('back-end.multi-user.home');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard'); */
 
 require __DIR__.'/auth.php';
 
-Route::group(['as'=>'author', 'prefix'=>'author', 'namespace'=>'Author', 'middleware'=>['auth', 'author']], function() {
+Route::group(['as'=>'author.', 'prefix'=>'author', 'namespace'=>'Author', 'middleware'=>['auth', 'author']], function() {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
-Route::group(['as'=>'user', 'prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth' ,'user']], function() {
+Route::group(['as'=>'user.', 'prefix'=>'user', 'namespace'=>'User', 'middleware'=>['auth' ,'user']], function() {
     Route::get('dashboard', [UserDashboard::class, 'index'])->name('dashboard');
 });
